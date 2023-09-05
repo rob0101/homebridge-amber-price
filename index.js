@@ -25,6 +25,8 @@ class EnergyPrice {
     	this.name = config["name"];
     	this.manufacturer = config["manufacturer"] || "Energy Price";
 	    this.model = config["model"] || "Monitor";
+	    this.apiKey = config["apiKey"] || "API Key";
+	    this.apiId = config["apiId"] || "API ID";
 	    this.minRate = config["min_rate"] || DEF_MIN_RATE;
     	this.maxRate = config["max_rate"] || DEF_MAX_RATE;
 	this.refreshInterval = config["refreshInterval"] === undefined ? (interval * 60000) : (config["refreshInterval"] * 60000)
@@ -43,17 +45,21 @@ class EnergyPrice {
 		if(this.timer) clearTimeout(this.timer)
 		this.timer = null
 		try {
-		    const hourlyData = await api.get('https://hourlypricing.comed.com/api?type=currenthouraverage')
-		    this.log.info('Data from API', hourlyData.data[0].price);
-		    if (hourlyData.data[0].price == null) {
+//		    const hourlyData = await api.get('https://hourlypricing.comed.com/api?type=currenthouraverage')
+			
+//			this.log.info('https://api.amber.com.au/v1/sites/'+this.apiId+'/prices/current?next=0&previous=0&resolution=5');
+//			this.log.info('KEY='+this.apiKey);
+		    const amberData = await api.get('https://api.amber.com.au/v1/sites/'+this.apiId+'/prices/current?next=0&previous=0&resolution=30', {headers: {'accept': 'application/json', 'Authorization': 'Bearer ' + this.apiKey}});
+		    this.log.info('Data from API', amberData.data[0].perKwh);
+		    if (amberData.data[0].perKwh == null) {
 		        // No price in hourlyData, return maximum allowed value
 		        this.service.getCharacteristic(Characteristic.CurrentTemperature).updateValue(DEF_MAX_RATE)
 		    } else {
 		        // Return positive value
-		        this.service.getCharacteristic(Characteristic.CurrentTemperature).updateValue(this.convertToFahrenheit(hourlyData.data[0].price), 1)
+		        this.service.getCharacteristic(Characteristic.CurrentTemperature).updateValue(amberData.data[0].perKwh, 1)
 		    }
 		} catch (error) {
-		    this.log.error('Error getting current billing rate %s', error)
+		    this.log.error('Error getting current 30m estimated price %s', error)
 		    // No response hourlyData, return maximum allowed value
 		    this.service.getCharacteristic(Characteristic.CurrentTemperature).updateValue(DEF_MAX_RATE)
 		}
