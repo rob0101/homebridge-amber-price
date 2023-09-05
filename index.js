@@ -8,7 +8,7 @@ const DEF_MIN_RATE = -10000,
 
 const interval = 5 // Minutes
 
-const PLUGIN_NAME   = 'homebridge-energy-price';
+const PLUGIN_NAME   = 'homebridge-amber-price';
 const ACCESSORY_NAME = 'Energy Price';
 
 module.exports = function(homebridge) {
