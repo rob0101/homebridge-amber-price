@@ -37,6 +37,7 @@ You will need to add the following example accessory configuration to your homeb
             "model": "Amber Price Monitor",
             "apiKey": "=== your API Key here ====",
             "apiId": "=== Your API ID here ====",
+            "refreshInterval": 5,
             "accessory": "Energy Price"
     }
 ]
