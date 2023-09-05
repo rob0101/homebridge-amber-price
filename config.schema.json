@@ -6,13 +6,13 @@
 			"title": "Name",
 			"type": "string",
 			"required": true,
-			"default": "Energy Price"
+			"default": "Amber Price"
 		},
 		"manufacturer": {
 			"title": "Manufacturer",
 			"type": "string",
 			"required": false,
-			"default": "ComEd"
+			"default": "Amber"
 		},
 		"model": {
 			"title": "Model",
@@ -24,7 +24,7 @@
 			"title": "Refresh Interval",
 			"type": "integer",
 			"required": false,
-			"description": "Specifies the number of minutes between ComEd polls and updates. Default is 5."
+			"description": "Specifies the number of minutes between Amber polls and updates. Default is 5."
 
 		},
 		"apiKey": {
