@@ -51,6 +51,6 @@ Field | Description
 **name** | (required) The name you want to use for the power level widget.
 **manufacturer** | (optional) This shows up in the HomeKit accessory characteristics.
 **model** | (optional) This shows up in the HomeKit accessory characteristics.
-**refreshInterval** | (optional) The refresh interval in minutes for polling ComEd. The default is 5 minutes.
+**refreshInterval** | (required) The refresh interval in minutes for polling Amber.
 **apiID** | (required) Your Amber API site ID
 **apiKey** | (required) Your Amber API Key starts with psk_
