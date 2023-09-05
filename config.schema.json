@@ -26,6 +26,20 @@
 			"required": false,
 			"description": "Specifies the number of minutes between ComEd polls and updates. Default is 5."
 
+		},
+		"apiKey": {
+			"title": "API Key",
+			"type": "string",
+			"required": true,
+			"description": "Amber API Key"
+
+		},
+		"apiId": {
+			"title": "API ID",
+			"type": "string",
+			"required": true,
+			"description": "Amber API ID"
+
 		}
 	}
 }
