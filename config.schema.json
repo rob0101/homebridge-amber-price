@@ -23,7 +23,7 @@
 		"refreshInterval": {
 			"title": "Refresh Interval",
 			"type": "integer",
-			"required": false,
+			"required": true,
 			"default": 5,
 			"description": "Specifies the number of minutes between Amber polls and updates. Default is 5."
 
