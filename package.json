@@ -9,7 +9,7 @@
                 "homebridge-plugin",
                 "Energy",
                 "Price",
-                "ComEd"
+                "Amber"
         ],
         "repository": {
                 "type": "git",
