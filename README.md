@@ -1,6 +1,6 @@
 # Homebridge-Amber-Price
 
-Homebridge-Amber-Price is a project forked from [ecoen66/homebridge-energy-price](https://github.com/ecoen66/homebridge-energy-price). This version has been modified to talk to the API of Amber Electric in Austraia
+Homebridge-Amber-Price is a project forked from [anon1y4012/homebridge-energy-price](https://github.com/anon1y4012/homebridge-energy-price). This version has been modified to talk to the API of Amber Electric in Austraia
 
 ## Installation
 
