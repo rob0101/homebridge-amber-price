@@ -1,6 +1,6 @@
-# Homebridge-Energy-Price
+# Homebridge-Amber-Price
 
-Homebridge-Energy-Price is a project forked from [ecoen66/homebridge-comed-hourlybilling](https://github.com/ecoen66/homebridge-comed-hourlybilling). This version has been modified to run as a temperature sensor, allowing negative values. Initially created to automate EV charging during periods of negative energy prices, this plugin can also be employed for monitoring or other automation purposes. This works with the ComEd API to provide hourly average pricing data.
+Homebridge-Amber-Price is a project forked from [ecoen66/homebridge-energy-price](https://github.com/ecoen66/homebridge-energy-price). This version has been modified to talk to the API of Amber Electric in Austraia
 
 ## Installation
 
@@ -10,7 +10,7 @@ If you want to install manually, you can run the following commands:
 
 ```bash
 sudo npm install -g homebridge
-sudo npm install -g homebridge-energy-price
+sudo npm install -g homebridge-amber-price
 ```
 
 **Note:** If you install homebridge using the following command:
@@ -22,7 +22,7 @@ sudo npm install -g --unsafe-perm homebridge
 All subsequent installations must follow the same format, like this:
 
 ```bash
-sudo npm install -g --unsafe-perm homebridge-energy-price
+sudo npm install -g --unsafe-perm homebridge-amber-price
 ```
 
 ## Configuration
@@ -32,10 +32,12 @@ You will need to add the following example accessory configuration to your homeb
 ```json
 "accessories": [
     {
-        "name": "Energy Price",
-        "manufacturer": "ComEd",
-        "model": "Energy Price Monitor",
-        "accessory": "Energy Price"
+         "name": "Amber Price",
+            "manufacturer": "Amber",
+            "model": "Amber Price Monitor",
+            "apiKey": "=== your API Key here ====",
+            "apiId": "=== Your API ID here ====",
+            "accessory": "Energy Price"
     }
 ]
 ```
@@ -49,3 +51,5 @@ Field | Description
 **manufacturer** | (optional) This shows up in the HomeKit accessory characteristics.
 **model** | (optional) This shows up in the HomeKit accessory characteristics.
 **refreshInterval** | (optional) The refresh interval in minutes for polling ComEd. The default is 5 minutes.
+**apiID** | (required) Your Amber API site ID
+**apiKey** | (required) Your Amber API Key starts with psk_
